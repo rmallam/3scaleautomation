@@ -1,0 +1,10 @@
+---
+apiVersion: capabilities.3scale.net/v1beta1
+kind: Backend
+metadata:
+  name: brightpoint-stock
+spec:
+  name: "brightpoint-stock"
+  systemName: "brightpoint_stock"
+  privateBaseURL: "https://api.brightpoint.com/stock/v1"
+  description: "brightpoint_stock"

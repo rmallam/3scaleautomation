@@ -1,0 +1,389 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+      "title": "3PL API",
+      "version": "1.0.0",
+      "description": "This is 3pl"
+  },
+  "paths": {
+      "/stocks": {
+          "summary": "Path used to manage the list of stocks.",
+          "description": "The REST endpoint/path used to list and create zero or more `Stock` entities.  This path contains a `GET` and `POST` operation to perform the list and create tasks, respectively.",
+          "get": {
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "$ref": "#/components/schemas/Stock"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Successful response - returns an array of `Stock` entities."
+                  }
+              },
+              "operationId": "getStocks",
+              "summary": "List All Stocks",
+              "description": "Gets a list of all `Stock` entities."
+          },
+          "post": {
+              "requestBody": {
+                  "description": "A new `Stock` to be created.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Stock"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "201": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "createStock",
+              "summary": "Create a Stock",
+              "description": "Creates a new instance of a `Stock`."
+          }
+      },
+      "/stocks/{stockId}": {
+          "summary": "Path used to manage a single Stock.",
+          "description": "The REST endpoint/path used to get, update, and delete single instances of an `Stock`.  This path contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete tasks, respectively.",
+          "get": {
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/Stock"
+                              }
+                          }
+                      },
+                      "description": "Successful response - returns a single `Stock`."
+                  }
+              },
+              "operationId": "getStock",
+              "summary": "Get a Stock",
+              "description": "Gets the details of a single instance of a `Stock`."
+          },
+          "put": {
+              "requestBody": {
+                  "description": "Updated `Stock` information.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Stock"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "updateStock",
+              "summary": "Update a Stock",
+              "description": "Updates an existing `Stock`."
+          },
+          "delete": {
+              "responses": {
+                  "204": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "deleteStock",
+              "summary": "Delete a Stock",
+              "description": "Deletes an existing `Stock`."
+          },
+          "parameters": [
+              {
+                  "name": "stockId",
+                  "description": "A unique identifier for a `Stock`.",
+                  "schema": {
+                      "type": "string"
+                  },
+                  "in": "path",
+                  "required": true
+              }
+          ]
+      },
+      "/shippingorders": {
+          "summary": "Path used to manage the list of shippingorders.",
+          "description": "The REST endpoint/path used to list and create zero or more `ShippingOrder` entities.  This path contains a `GET` and `POST` operation to perform the list and create tasks, respectively.",
+          "get": {
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "$ref": "#/components/schemas/ShippingOrder"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Successful response - returns an array of `ShippingOrder` entities."
+                  }
+              },
+              "operationId": "getShippingOrders",
+              "summary": "List All ShippingOrders",
+              "description": "Gets a list of all `ShippingOrder` entities."
+          },
+          "post": {
+              "requestBody": {
+                  "description": "A new `ShippingOrder` to be created.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/ShippingOrder"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "201": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "createShippingOrder",
+              "summary": "Create a ShippingOrder",
+              "description": "Creates a new instance of a `ShippingOrder`."
+          }
+      },
+      "/shippingorders/{shippingorderId}": {
+          "summary": "Path used to manage a single ShippingOrder.",
+          "description": "The REST endpoint/path used to get, update, and delete single instances of an `ShippingOrder`.  This path contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete tasks, respectively.",
+          "get": {
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/ShippingOrder"
+                              }
+                          }
+                      },
+                      "description": "Successful response - returns a single `ShippingOrder`."
+                  }
+              },
+              "operationId": "getShippingOrder",
+              "summary": "Get a ShippingOrder",
+              "description": "Gets the details of a single instance of a `ShippingOrder`."
+          },
+          "put": {
+              "requestBody": {
+                  "description": "Updated `ShippingOrder` information.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/ShippingOrder"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "updateShippingOrder",
+              "summary": "Update a ShippingOrder",
+              "description": "Updates an existing `ShippingOrder`."
+          },
+          "delete": {
+              "responses": {
+                  "204": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "deleteShippingOrder",
+              "summary": "Delete a ShippingOrder",
+              "description": "Deletes an existing `ShippingOrder`."
+          },
+          "parameters": [
+              {
+                  "name": "shippingorderId",
+                  "description": "A unique identifier for a `ShippingOrder`.",
+                  "schema": {
+                      "type": "string"
+                  },
+                  "in": "path",
+                  "required": true
+              }
+          ]
+      },
+      "/appointments": {
+          "summary": "Path used to manage the list of appointments.",
+          "description": "The REST endpoint/path used to list and create zero or more `Appointment` entities.  This path contains a `GET` and `POST` operation to perform the list and create tasks, respectively.",
+          "get": {
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "$ref": "#/components/schemas/Appointment"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Successful response - returns an array of `Appointment` entities."
+                  }
+              },
+              "operationId": "getAppointments",
+              "summary": "List All Appointments",
+              "description": "Gets a list of all `Appointment` entities."
+          },
+          "post": {
+              "requestBody": {
+                  "description": "A new `Appointment` to be created.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Appointment"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "201": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "createAppointment",
+              "summary": "Create a Appointment",
+              "description": "Creates a new instance of a `Appointment`."
+          }
+      },
+      "/appointments/{appointmentId}": {
+          "summary": "Path used to manage a single Appointment.",
+          "description": "The REST endpoint/path used to get, update, and delete single instances of an `Appointment`.  This path contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete tasks, respectively.",
+          "get": {
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/Appointment"
+                              }
+                          }
+                      },
+                      "description": "Successful response - returns a single `Appointment`."
+                  }
+              },
+              "operationId": "getAppointment",
+              "summary": "Get a Appointment",
+              "description": "Gets the details of a single instance of a `Appointment`."
+          },
+          "put": {
+              "requestBody": {
+                  "description": "Updated `Appointment` information.",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Appointment"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "updateAppointment",
+              "summary": "Update a Appointment",
+              "description": "Updates an existing `Appointment`."
+          },
+          "delete": {
+              "responses": {
+                  "204": {
+                      "description": "Successful response."
+                  }
+              },
+              "operationId": "deleteAppointment",
+              "summary": "Delete a Appointment",
+              "description": "Deletes an existing `Appointment`."
+          },
+          "parameters": [
+              {
+                  "name": "appointmentId",
+                  "description": "A unique identifier for a `Appointment`.",
+                  "schema": {
+                      "type": "string"
+                  },
+                  "in": "path",
+                  "required": true
+              }
+          ]
+      }
+  },
+  "components": {
+      "schemas": {
+          "Stock": {
+              "title": "Root Type for Stock",
+              "description": "",
+              "type": "object",
+              "properties": {
+                  "id": {
+                      "type": "string"
+                  },
+                  "SKU": {
+                      "type": "string"
+                  }
+              },
+              "example": {
+                  "id": "theid1234",
+                  "SKU": "SK0001"
+              }
+          },
+          "ShippingOrder": {
+              "title": "Root Type for ShippingOrder",
+              "description": "",
+              "type": "object",
+              "properties": {
+                  "id": {
+                      "type": "string"
+                  },
+                  "parcelTracking": {
+                      "type": "string"
+                  }
+              },
+              "example": {
+                  "id": "theshipid1234",
+                  "parcelTracking": "BR000001234Z"
+              }
+          },
+          "Appointment": {
+              "title": "Root Type for Appointment",
+              "description": "",
+              "type": "object",
+              "properties": {
+                  "id": {
+                      "type": "string"
+                  },
+                  "slot": {
+                      "type": "string"
+                  }
+              },
+              "example": {
+                  "id": "theappid1234",
+                  "slot": "wed, 8am"
+              }
+          }
+      }
+  }
+}

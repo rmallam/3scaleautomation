@@ -1,0 +1,11 @@
+---
+spec:
+  api: 
+    publicBasePath: "/threepl/v1"
+  backends:
+    - id: dx_int_brightpoint_shipping
+      path: "/shippingorders"
+    - id: dx_int_brightpoint_stock
+      path: "/stocks"
+    - id: dx_int_brightpoint_appt
+      path: "/appointments"
